@@ -13,9 +13,12 @@ public class Datum {
 	private String type;
 
 	/**
-	 * Empty constructor, used for reflection.
+	 * Construct a datum of a given type.
+	 * 
+	 * @param type The textual type path for this datum.
 	 */
-	public Datum() {
+	public Datum(String type) {
+		this.type = type;
 	}
 
 	public String getParentType() {
