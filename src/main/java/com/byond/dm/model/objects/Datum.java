@@ -26,7 +26,7 @@ public class Datum {
 		if (index < 1) {
 			return null;
 		} else {
-			return type.substring(0, index - 1);
+			return type.substring(0, index);
 		}
 	}
 	

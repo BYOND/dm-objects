@@ -51,4 +51,12 @@
 			</roles>
 		</developer>
 	</developers>
+	
+	<dependencies>
+		<dependency>
+			<artifactId>junit</artifactId>
+			<groupId>junit</groupId>
+			<version>4.11</version>
+		</dependency>
+	</dependencies>
 </project>
