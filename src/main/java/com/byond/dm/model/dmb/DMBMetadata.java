@@ -37,7 +37,7 @@ public class DMBMetadata implements DMBReadable {
 	 * @see com.byond.dm.model.dmb.DMBReadable#read(java.io.InputStream)
 	 */
 	@Override
-	public void read(InputStream stream) throws IOException {
+	public void read(TrackedInputStream stream) throws IOException {
 		if (stream.skip(11) < 11) {
 			throw new IOException("Could not skip to position, DMB is corrupt.");
 		}

@@ -2,18 +2,17 @@ package com.byond.dm.model.dmb;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URISyntaxException;
 
 import org.junit.After;
 import org.junit.Before;
 
 public abstract class DMBTest {
-	protected InputStream stream;
+	protected TrackedInputStream stream;
 
 	@Before
 	public void before() throws FileNotFoundException, URISyntaxException {
-		stream = Thread.currentThread().getContextClassLoader().getResourceAsStream("TestEnvironment/TestEnvironment.dmb");
+		stream = new TrackedInputStream(Thread.currentThread().getContextClassLoader().getResourceAsStream("TestEnvironment/TestEnvironment.dmb"));
 	}
 	
 	@After

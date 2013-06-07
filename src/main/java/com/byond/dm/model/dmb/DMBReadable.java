@@ -1,7 +1,6 @@
 package com.byond.dm.model.dmb;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 /**
  * An interface for objects which can be initialised off a DMB I/O stream.
@@ -15,5 +14,5 @@ public interface DMBReadable {
 	 * @param stream The DMB stream to read from.
 	 * @throws IOException If the object could not be initialised from the stream.
 	 */
-	void read(final InputStream stream) throws IOException;
+	void read(final TrackedInputStream stream) throws IOException;
 }

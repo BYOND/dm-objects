@@ -37,7 +37,7 @@ public class MapMetadata implements DMBReadable {
 	 * @see com.byond.dm.model.dmb.DMBReadable#read(java.io.InputStream)
 	 */
 	@Override
-	public void read(InputStream stream) throws IOException {
+	public void read(TrackedInputStream stream) throws IOException {
 		maxX = readUnsignedShort(stream);
 		maxY = readUnsignedShort(stream);
 		maxZ = readUnsignedShort(stream);
