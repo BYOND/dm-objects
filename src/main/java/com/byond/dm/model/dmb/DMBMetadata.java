@@ -33,20 +33,31 @@ public class DMBMetadata implements DMBReadable {
 		this.minimumVersion = minimumVersion;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.byond.dm.model.dmb.DMBReadable#read(java.io.InputStream)
+	 */
 	@Override
 	public void read(InputStream stream) throws IOException {
-		stream.skip(11);
-		byte[] verBytes = {0, 0, 0};
-		stream.read(verBytes);
-		compiledVersion = Short.parseShort(new String(verBytes));
-		stream.skip(20);
-		verBytes = new byte[3];
-		stream.read(verBytes);
-		minimumVersion = Short.parseShort(new String(verBytes));
-		stream.skip(5);
-		verBytes = new byte[4];
+		if (stream.skip(11) < 11) {
+			throw new IOException("Could not skip to position, DMB is corrupt.");
+		}
+		compiledVersion = readStringShort(stream);
+		if (stream.skip(20) < 20) {
+			throw new IOException("Could not skip to position, DMB is corrupt.");
+		}
+		minimumVersion = readStringShort(stream);
+		if (stream.skip(5) < 5) {
+			throw new IOException("Could not skip to position, DMB is corrupt.");
+		}
+		byte[] verBytes = {0, 0, 0, 0};
 		stream.read(verBytes);
 		ByteBuffer buffer = ByteBuffer.wrap(verBytes);
 		flags = buffer.getInt();
+	}
+
+	private short readStringShort(InputStream stream) throws IOException {
+		byte[] verBytes = {0, 0, 0};
+		stream.read(verBytes);
+		return Short.parseShort(new String(verBytes));
 	}
 }
