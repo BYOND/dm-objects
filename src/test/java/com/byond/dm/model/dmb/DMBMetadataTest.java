@@ -12,7 +12,7 @@ public class DMBMetadataTest extends DMBTest {
 	public void testBasicMetadata() throws IOException {
 		DMBMetadata metadata = new DMBMetadata();
 		metadata.read(stream);
-		assertEquals(499, metadata.getCompiledVersion());
-		assertEquals(490, metadata.getMinimumVersion());
+		assertEquals(498, metadata.getCompiledVersion());
+		assertEquals(468, metadata.getMinimumVersion());
 	}
 }
