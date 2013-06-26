@@ -1,8 +1,8 @@
 package com.byond.dm.model.dmb;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.ByteBuffer;
+
+import com.byond.dm.model.dmb.utils.ByteUtils;
 
 public class MapMetadata implements DMBReadable {
 	private int maxX;
@@ -38,16 +38,8 @@ public class MapMetadata implements DMBReadable {
 	 */
 	@Override
 	public void read(TrackedInputStream stream) throws IOException {
-		maxX = readUnsignedShort(stream);
-		maxY = readUnsignedShort(stream);
-		maxZ = readUnsignedShort(stream);
-	}
-
-	private int readUnsignedShort(InputStream stream) throws IOException {
-		byte[] verBytes = {0, 0};
-		stream.read(verBytes);
-		ByteBuffer buffer = ByteBuffer.wrap(verBytes);
-		short i = buffer.getShort();
-		return i >= 0 ? i : 0x10000 + i;
+		maxX = ByteUtils.readUnsignedShort(stream);
+		maxY = ByteUtils.readUnsignedShort(stream);
+		maxZ = ByteUtils.readUnsignedShort(stream);
 	}
 }

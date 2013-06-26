@@ -1,8 +1,9 @@
 package com.byond.dm.model.dmb;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.ByteBuffer;
+
+import com.byond.dm.model.dmb.utils.ByteUtils;
 
 public class DMBMetadata implements DMBReadable {
 	private short compiledVersion;
@@ -41,11 +42,11 @@ public class DMBMetadata implements DMBReadable {
 		if (stream.skip(11) < 11) {
 			throw new IOException("Could not skip to position, DMB is corrupt.");
 		}
-		compiledVersion = readStringShort(stream);
+		compiledVersion = ByteUtils.readStringShort(stream);
 		if (stream.skip(20) < 20) {
 			throw new IOException("Could not skip to position, DMB is corrupt.");
 		}
-		minimumVersion = readStringShort(stream);
+		minimumVersion = ByteUtils.readStringShort(stream);
 		if (stream.skip(5) < 5) {
 			throw new IOException("Could not skip to position, DMB is corrupt.");
 		}
@@ -53,11 +54,5 @@ public class DMBMetadata implements DMBReadable {
 		stream.read(verBytes);
 		ByteBuffer buffer = ByteBuffer.wrap(verBytes);
 		flags = buffer.getInt();
-	}
-
-	private short readStringShort(InputStream stream) throws IOException {
-		byte[] verBytes = {0, 0, 0};
-		stream.read(verBytes);
-		return Short.parseShort(new String(verBytes));
 	}
 }
