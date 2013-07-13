@@ -27,4 +27,60 @@ public class AtomPrototype implements DMBReadable {
 			throw new IOException("Could not skip stream, data may be corrupted.");
 		}
 	}
+
+	public int getTypePathIndex() {
+		return typePathIndex;
+	}
+
+	public int getParentTypeReferenceIndex() {
+		return parentTypeReferenceIndex;
+	}
+
+	public int getTypeNameIndex() {
+		return typeNameIndex;
+	}
+
+	public int getDescriptionIndex() {
+		return descriptionIndex;
+	}
+
+	public int getIconIndex() {
+		return iconIndex;
+	}
+
+	public int getIconStateIndex() {
+		return iconStateIndex;
+	}
+
+	public byte getDirection() {
+		return direction;
+	}
+
+	public void setTypePathIndex(int typePathIndex) {
+		this.typePathIndex = typePathIndex;
+	}
+
+	public void setParentTypeReferenceIndex(int parentTypeReferenceIndex) {
+		this.parentTypeReferenceIndex = parentTypeReferenceIndex;
+	}
+
+	public void setTypeNameIndex(int typeNameIndex) {
+		this.typeNameIndex = typeNameIndex;
+	}
+
+	public void setDescriptionIndex(int descriptionIndex) {
+		this.descriptionIndex = descriptionIndex;
+	}
+
+	public void setIconIndex(int iconIndex) {
+		this.iconIndex = iconIndex;
+	}
+
+	public void setIconStateIndex(int iconStateIndex) {
+		this.iconStateIndex = iconStateIndex;
+	}
+
+	public void setDirection(byte direction) {
+		this.direction = direction;
+	}
 }
