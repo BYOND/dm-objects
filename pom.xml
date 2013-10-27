@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<artifactId>dm-objects</artifactId>
-	<version>1.0.3</version>
+	<version>1.0.4-SNAPSHOT</version>
 	<name>DM Objects</name>
 	<description>A project that provides common DM objects in Java form, to report metadata etc from DMBs.</description>
 	<inceptionYear>2013</inceptionYear>
@@ -20,7 +20,7 @@
 		<connection>scm:git:git://github.com/BYOND/${project.artifactId}.git</connection>
 		<developerConnection>scm:git:git@github.com:BYOND/${project.artifactId}.git</developerConnection>
 		<url>https://github.com/BYOND/${project.artifactId}</url>
-		<tag>dm-objects-1.0.3</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<distributionManagement>
